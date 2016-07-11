@@ -1,0 +1,5 @@
+(define (multiplication a b)
+	(cond ((< b 2) a)
+	      ((even? b) (multiplication (double a) (halve b)))
+	      (else (+ a (multiplication a (- b 1))))))
+
