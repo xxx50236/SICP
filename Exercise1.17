@@ -1,0 +1,11 @@
+(define (expt b n)
+        (expt-iter b n 1))
+
+(define (expt-iter b counter product)
+        (if (= counter 0)
+            product
+            (expt-iter b (- counter 1) (* b product))))
+ 
+(define (fast-iter-expt b n)
+	(if (even? n) (expt (* b b) (/ n 2))
+	    (* b (fast-iter-expt b (- n 1))))
