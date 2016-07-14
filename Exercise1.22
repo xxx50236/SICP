@@ -1,0 +1,20 @@
+#define the function of generate odd
+(define (next-odd n)
+	(if (odd? n)
+	    (+ 2 n)
+	    (+ 1 n)))
+
+#define three smallest primes
+ (define (continue-prime n count)
+	(cond ((= count 0)
+	       (display "are primes."))
+	      ((prime? n) (display n) (newline)
+			  (continue-primes (next-odd n) (- count 1)))
+	      (else (continue-prime (next-odd n) count))))
+
+(define (time n start-time)
+	(continue-prime n 3)
+	(display (- (real-time-clock) start-time)))
+
+ (define (search-for-primes n)
+	(time n (real-time-clock)))
