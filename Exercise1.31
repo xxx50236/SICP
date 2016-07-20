@@ -1,0 +1,25 @@
+ (define (product term a next b)
+   (if (or (= a b) (> a b))
+       (term a)
+       (* (term a) (product term (next a) next b))))
+
+
+(define (product term a next b)
+
+  (define (iter a result)
+    (if (or (= a b) (> a b))
+        result
+        (iter (next a) (* (term a) result))))
+
+  (iter a 1))
+
+
+
+ (define (four-pi n)
+
+   (define (term a)
+     (if (= a 2) 2
+         (* a a)))
+   (define (next a) (+ a 2))
+
+   (/ (product term 2 next n) (product term 3 next n)))
