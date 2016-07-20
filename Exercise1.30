@@ -1,0 +1,16 @@
+ (define (simpson f a b n)
+
+	(define h (/ (- b a) n))
+
+	(define (y k) (f (+ a (* h k))))
+
+	(define (factor k)
+		(cond ((or (= k n) (= k 0)) 1)
+		      ((= (remainder k 2) 0) 2)
+		      (else 4)))
+
+	(define (term k) (* (factor k) (y k)))
+	
+	(define (next k) (+ 1 k))
+
+	(* (/ h 3) (sum term 0 next n)))
