@@ -1,0 +1,26 @@
+ (define (sequen n)
+	(define (three-time? n) (= (remainder (- n 2) 3) 0))
+
+	(define (multip n) (+ (/ (- n 2) 3) 1))
+
+	(cond ((= 1 n) 1)
+	      ((= 2 n) 2)
+	      ((three-time? n) (* 2 (multip n)))
+	      (else 1)))
+
+#iterative
+              
+ (define (contfrac n d k)
+	      (define (iter i result)
+		(if (= i 0) result
+			    (iter (- i 1) (/ (n i) (+ (d i) result)))))
+	      (iter k (/ (n k) (d k))))
+
+#recursive
+
+ (define (contfrac n d k)
+	      (define (cf i)
+		(if (= k i) 
+		    (/ (n k) (d k))
+		    (/ (n i) (+ (d i) (cf (+ 1 i))))))
+	      (cf 1))
