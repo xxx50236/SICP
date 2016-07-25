@@ -8,3 +8,4 @@
  (define (newton-cubeic a b c)
 	(define (cubic x) (lambda (x) (+ (cube x) (* a (* x x)) (* b x) c)))
 	(newtons-method cubic 1 ))
+x

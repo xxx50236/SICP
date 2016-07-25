@@ -17,8 +17,8 @@
 	      (iter k (/ (n k) (d k))))
 
 #recursive
+               
 
- (define (contfrac n d k)
 	      (define (cf i)
 		(if (= k i) 
 		    (/ (n k) (d k))
