@@ -1,0 +1,10 @@
+ (define (newton-transform g)
+	(lambda (x)
+	        (- x (/ (g x) ((deriv g) x)))))
+
+ (define (newtons-method g guess)
+	(fixed-point (newton-transform g) guess))
+
+ (define (newton-cubeic a b c)
+	(define (cubic x) (lambda (x) (+ (cube x) (* a (* x x)) (* b x) c)))
+	(newtons-method cubic 1 ))
