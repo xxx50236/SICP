@@ -1,0 +1,2 @@
+ (define (double f value)
+	(f (f value)))
